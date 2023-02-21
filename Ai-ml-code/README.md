@@ -1,4 +1,4 @@
-# AI Ml Anna University Exercies
+# AI Ml Anna University Exercises
 
 
 ## Exercises >
