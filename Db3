@@ -1,0 +1,46 @@
+
+1.Create a table which has the following fieldsCustomerID, CustomerName, ContactName, Address,City, PostalCode, 
+Country.
+CREATE TABLE CUSTOMER(CustomerID number, CustomerName varchar2(15), ContactName varchar2(15), 
+Address varchar2(15), City varchar2(15), PostalCode number);
+2.Write a SQL statement selects all the customers from the country "Mexico", in the "Customers" table:
+ SELECT * FROM Customers WHERE Country='Mexico';
+ SELECT * FROM Customers WHERE CustomerID=1;
+3. Execute the following query that uses the COUNT(expression) function to calculates the total number of employees 
+name available in the table:
+ mysql> SELECT COUNT(emp_name) FROM employees; 
+4. Execute the following statement that returns all rows from the employee table and WHERE clause specifies the rows 
+whose value in the column emp_age is greater than 32:
+ mysql> SELECT COUNT(*) FROM employees WHERE emp_age>32;
+5. This statement uses the COUNT(distinct expression) function that counts the Non-Null and distinct rows in the column 
+emp_age:
+ mysql> SELECT COUNT(DISTINCT emp_age) FROM employees;
+MySQL Count() Function with GROUP BY Clause
+6. We can also use the count() function with the GROUP BY clause that returns the count of the element in each group. 
+For example, the following statement returns the number of employee in each city:
+ mysql> SELECT emp_name, city, COUNT(*) FROM employees GROUP BY city;
+MySQL Count() Function with HAVING and ORDER BY Clause
+7. Execute the following statement that gives the employee name who has at least two age same and sorts them based on 
+the count result
+ mysql> SELECT emp_name, emp_age, COUNT(*) FROM employees GROUP BY emp_age HAVING 
+COUNT(*)>=2 ORDER BY COUNT(*);
+8. Execute the following query that calculates the total number of working hours of all employees in the table:
+ mysql> SELECT SUM(working_hours) AS "Total working hours" FROM employees;
+9. Execute the following query to calculate the total working hours of employees whose working_hours >= 12.
+ mysql> SELECT SUM(working_hours) AS "Total working hours" FROM employees WHERE 
+working_hours>=12; 
+10. Write a statement calculates the total working hours of each employee by using the SUM() function with the GROUP 
+BY clause, as shown in the following query:
+ mysql> SELECT emp_id, emp_name, occupation, SUM(working_hours) AS "Total working hours" FROM 
+employees GROUP BY occupation; 
+11. Execute the following statement that calculates the working hours of all employees, grouping them based on their 
+occupation and returns the result whose Total_working_hours>24.
+ mysql> SELECT emp_id, emp_name, occupation, SUM(working_hours) Total_working_hours FROM 
+employees GROUP BY occupation HAVING SUM(working_hours)>24;
+12. Execute the following query that removes the duplicate records in the working_hours column of the employee table 
+and then calculates the sum:
+ mysql> SELECT emp_name, occupation,2. SUM(DISTINCT working_hours) Total_working_hours FROM 
+employees GROUP BY occupation; 
+VIVA Questions
+1. What are aggregate functions in MySQL?
+2. Which clause is used with an aggregate functions?
