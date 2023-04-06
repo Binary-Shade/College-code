@@ -1,0 +1,43 @@
+select * from Employee;
+
+create table Department (DeptNo number (10), DName varchar2 (20));
+
+select * from Department;
+
+select EName, Salary from Employee where Salary&gt; (select min (Salary) from Employee where Job like ‘A %&#39;);
+
+select * from Employee;
+
+select ename from emp where job=(select job from emp where ename=&#39;Arul&#39;);
+
+select * from Employee, Department where Employee. deptno=Department.deptno;
+
+select * from Employee,Department where Employee.Deptno!=Dept.Deptno;
+
+Create table Student ( RegNo Number(10), Name varchar2(20), Mark1 number(10), Mark2 Number(10), Result varchar2(10));
+
+select * from Student;
+
+Create table Stud (Name varchar2 (20), Grade varchar2 (10));
+
+select * from Stud;
+
+select Student. name, grade from Student left outer join Stud on Student.name=Stud.name;
+
+select Student.name, regno, result from Student right outer join Stud on Student.name = Stud.name;
+
+select Student.name, regno from Student full outer join Stud on (Student.name= Stud.name);
+
+select distinct ename from Employee x, Department y where x.deptno=y.deptno;
+
+select distinct * from Employee x where x.Salary &gt;= (select avg(Salary) from Employee);
+
+select Deptno from Employee union select Deptno from dept;
+
+select Deptno from Employee union all select Deptno from Department;
+
+select Deptno from Employee minus select Deptno from Department;
+
+select Deptno from Department minus select Deptno from Employee;
+
+SELECT * FROM Orders ON Orders.CustomerID=Customers.CustomerID;
