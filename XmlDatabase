@@ -1,0 +1,81 @@
+
+
+-----students.xml-------
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+
+ <student>
+
+ <id>101</id>
+
+ <name>binary shade</name>
+
+ <age>20</age>
+
+ <major>Computer Science</major>
+
+ </student>
+
+ <student>
+
+ <id>102</id>
+
+ <name>Dj dark cyber</name>
+
+ <age>22</age>
+
+ <major>Business Administration</major>
+
+ </student>
+
+</students>
+
+
+
+students.xsd--------------
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.google.com/XMLSchema">
+ <xs:element name="students">
+ <xs:complexType>
+ <xs:sequence>
+ <xs:element name="student" maxOccurs="unbounded">
+ <xs:complexType>
+ <xs:sequence>
+ <xs:element name="id" type="xs:integer"/>
+ <xs:element name="name" type="xs:string"/>
+ <xs:element name="age" type="xs:integer"/>
+ <xs:element name="major" type="xs:string"/>
+</xs:sequence>
+
+ </xs:complexType>
+
+ </xs:element>
+
+ </xs:sequence>
+
+ </xs:complexType>
+
+ </xs:element>
+
+</xs:schema>
+
+import xmlschema
+      
+        
+schema = xmlschema.XMLSchema('books.xsd')
+
+# Load the XML file
+
+xml = 'books.xml'
+
+# Validate the XML file against the schema
+
+if schema.is_valid(xml):
+
+    print('Validation successful')
+
+else:
+
+    print('Validation failed')
